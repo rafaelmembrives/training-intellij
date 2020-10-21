@@ -18,7 +18,9 @@ class TrainingIntellijApplicationTests {
     @Test
     void testIntelliJCodeInspection() {
         List<Person> persons = personService.findAll();
-        Assertions.assertTrue(persons.isEmpty());
+        Assertions.assertFalse(persons.isEmpty());
+
+
         List<Person> filteredPersons = persons.stream().filter(person -> person.getName().contains("Membrives")).collect(Collectors.toList());
         Assertions.assertTrue(filteredPersons.size() == 1);
 
@@ -32,8 +34,14 @@ class TrainingIntellijApplicationTests {
         });
         thread.run();
 
-        Optional<Person> me = personService.findById("rmembrives");
-        Assertions.assertTrue(me.isPresent());
+
+
+
+
+
+
+//        Optional<Person> me = personService.findById("rmembrives");
+//        Assertions.assertTrue(me.isPresent());
 
         String value = alwaysReturnNull();
         System.out.println(value.toLowerCase());
